@@ -1,0 +1,35 @@
+The ls command is a well-known and often used command-line program that is used to list directory contents by name; in fact, it could be argued that it is the most used Linux command-line program.
+
+$ ls
+MD5SUMS  annvix-netinstall-i586-2.0-RELEASE.iso  bin  mc-vdanen
+In addition to its most basic use, the ls command has a number of options that will provide additional information. To get a long listing of every file in a directory, including the hidden files, use:
+
+$ ls -la
+total 363604
+drwx------  3 vdanen vdanen        91 Jun  2 16:02 .
+drwx--x--x 18 vdanen vdanen      4096 Jun  2 15:07 ..
+-rw-r--r--  1 vdanen vdanen        73 Feb  4 21:53 MD5SUMS
+-rw-r--r--  1 vdanen vdanen 372318208 Feb  4 20:19 annvix-netinstall-i586-2.0-RELEASE.iso
+lrwxrwxrwx  1 vdanen vdanen         6 Jun  2 16:02 bin -> ../bin
+drwx------  2 vdanen vdanen         6 Mar  2  2004 mc-vdanen
+...
+To display the long listing in a human readable format that nicely summarizes the file sizes, use:
+
+$ ls -lah
+total 356M
+drwx------  3 vdanen vdanen   91 Jun  2 16:02 .
+drwx--x--x 18 vdanen vdanen 4.0K Jun  2 15:07 ..
+-rw-r--r--  1 vdanen vdanen   73 Feb  4 21:53 MD5SUMS
+-rw-r--r--  1 vdanen vdanen 356M Feb  4 20:19 annvix-netinstall-i586-2.0-RELEASE.iso
+lrwxrwxrwx  1 vdanen vdanen    6 Jun  2 16:02 bin -> ../bin
+drwx------  2 vdanen vdanen    6 Mar  2  2004 mc-vdanen
+To include visual identifiers of different file types, use the -F option. This will show directories by suffixing their name with a backslash (/) character, symbolic links by suffixing the file name with @, and so on:
+
+$ ls -F
+MD5SUMS  annvix-netinstall-i586-2.0-RELEASE.iso  bin@  mc-vdanen/
+There are other options for ls worth exploring. To do a long list without the permissions and size information, use the -1 option. To view the listings in color, use --color=auto. To list the files in reverse, use -r. To show a colored long list, in reverse, of just filenames, use ls -1 -r --color=auto. As you can see, you can use many options in conjunction with one another.
+
+If you find a listing format that you like, create an alias for it so when you invoke ls on the command-line, you'll always use your preferred format, such as by adding the following to ~/.bashrc:
+
+alias ls="/bin/ls -Fh --color=auto
+Use ls --help or man ls to get more information on the many different options you can use with ls to customize its output.
